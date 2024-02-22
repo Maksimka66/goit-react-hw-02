@@ -1,4 +1,4 @@
-import styles from "./Feedback.module.css";
+// import styles from "./Feedback.module.css";
 
 const Feedback = ({ responses: { good, neutral, bad } }) => {
   return (

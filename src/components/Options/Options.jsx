@@ -1,13 +1,12 @@
 // import { useState } from "react";
 // import styles from "./Options.module.css";
 
-const Options = (updateFeedback) => {
-  // const [feedbackType, setFeedbackType] = useState(0);
+const Options = ({ updateFeedback }) => {
   return (
     <div>
-      <button onClick={updateFeedback}>Good</button>
-      <button onClick={updateFeedback}>Neutral</button>
-      <button onClick={updateFeedback}>Bad</button>
+      <button onClick={() => updateFeedback("good")}>Good</button>
+      <button onClick={() => updateFeedback("neutral")}>Neutral</button>
+      <button onClick={() => updateFeedback("bad")}>Bad</button>
       <button>Reset</button>
     </div>
   );

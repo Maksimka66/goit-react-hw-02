@@ -11,16 +11,17 @@ function App() {
     neutral: 0,
     bad: 0,
   };
-  const [feedbackType, setFeedbackType] = useState(0);
-  const updateFeedback = () => {
-    setFeedbackType(...reviews, feedbackType + 1);
+
+  const [feedback, setFeedback] = useState(reviews);
+  const updateFeedback = (feedbackType) => {
+    setFeedback({ ...feedback, [feedbackType]: feedback[feedbackType] + 1 });
   };
 
   return (
     <>
       <Description />
       <Options updateFeedback={updateFeedback} />
-      <Feedback responses={reviews} />
+      <Feedback responses={feedback} />
     </>
   );
 }
