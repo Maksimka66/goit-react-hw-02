@@ -1,6 +1,7 @@
 import Description from "../Description/Description";
 import Options from "../Options/Options";
 import Feedback from "../Feedback/Feedback";
+import Notification from "../Notification/Notification";
 
 import { useState } from "react";
 import "./App.css";
@@ -17,11 +18,19 @@ function App() {
     setFeedback({ ...feedback, [feedbackType]: feedback[feedbackType] + 1 });
   };
 
+  const totalFeedback = ({ good, neutral, bad }) => {
+    return good + neutral + bad;
+  };
+
   return (
     <>
       <Description />
       <Options updateFeedback={updateFeedback} />
-      <Feedback responses={feedback} />
+      {totalFeedback(feedback) ? (
+        <Feedback responses={feedback} />
+      ) : (
+        <Notification />
+      )}
     </>
   );
 }
