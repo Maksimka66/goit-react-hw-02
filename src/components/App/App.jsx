@@ -2,6 +2,7 @@ import Description from "../Description/Description";
 import Options from "../Options/Options";
 import Feedback from "../Feedback/Feedback";
 
+import { useState } from "react";
 import "./App.css";
 
 function App() {
@@ -10,10 +11,15 @@ function App() {
     neutral: 0,
     bad: 0,
   };
+  const [feedbackType, setFeedbackType] = useState(0);
+  const updateFeedback = () => {
+    setFeedbackType(...reviews, feedbackType + 1);
+  };
+
   return (
     <>
       <Description />
-      <Options />
+      <Options updateFeedback={updateFeedback} />
       <Feedback responses={reviews} />
     </>
   );
