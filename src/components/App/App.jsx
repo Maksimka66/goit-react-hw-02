@@ -18,16 +18,30 @@ function App() {
     setFeedback({ ...feedback, [feedbackType]: feedback[feedbackType] + 1 });
   };
 
+  const removeState = () => {
+    setFeedback(reviews);
+  };
+
   const totalFeedback = ({ good, neutral, bad }) => {
     return good + neutral + bad;
   };
 
+  const positiveCalcPercent = ({ good, neutral }) =>
+    Math.round(((good + neutral) / totalFeedback(feedback)) * 100);
   return (
     <>
       <Description />
-      <Options updateFeedback={updateFeedback} />
+      <Options
+        updateFeedback={updateFeedback}
+        calcTotal={totalFeedback(feedback)}
+        removeFeedback={removeState}
+      />
       {totalFeedback(feedback) ? (
-        <Feedback responses={feedback} />
+        <Feedback
+          responses={feedback}
+          countTotal={totalFeedback(feedback)}
+          positiveReviews={positiveCalcPercent(feedback)}
+        />
       ) : (
         <Notification />
       )}
