@@ -3,7 +3,7 @@ import Options from "../Options/Options";
 import Feedback from "../Feedback/Feedback";
 import Notification from "../Notification/Notification";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
@@ -13,10 +13,18 @@ function App() {
     bad: 0,
   };
 
-  const [feedback, setFeedback] = useState(reviews);
+  const [feedback, setFeedback] = useState(() => {
+    const savedState = window.localStorage.getItem("saved-state");
+    return savedState ? JSON.parse(savedState) : reviews;
+  });
+
   const updateFeedback = (feedbackType) => {
     setFeedback({ ...feedback, [feedbackType]: feedback[feedbackType] + 1 });
   };
+
+  useEffect(() => {
+    window.localStorage.setItem("saved-state", JSON.stringify(feedback));
+  }, [feedback]);
 
   const removeState = () => {
     setFeedback(reviews);
