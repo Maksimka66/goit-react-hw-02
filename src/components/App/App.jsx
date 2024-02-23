@@ -6,13 +6,13 @@ import Notification from "../Notification/Notification";
 import { useEffect, useState } from "react";
 import "./App.css";
 
-function App() {
-  const reviews = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
+const reviews = {
+  good: 0,
+  neutral: 0,
+  bad: 0,
+};
 
+function App() {
   const [feedback, setFeedback] = useState(() => {
     const savedState = window.localStorage.getItem("saved-state");
     return savedState ? JSON.parse(savedState) : reviews;

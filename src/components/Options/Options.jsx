@@ -1,6 +1,6 @@
 import styles from "./Options.module.css";
 
-const Options = ({ updateFeedback, calcTotal, removeFeedback }) => {
+const Options = ({ updateFeedback, hasFeedback, removeFeedback }) => {
   return (
     <div className={styles.buttonContainer}>
       <button className={styles.good} onClick={() => updateFeedback("good")}>
@@ -15,13 +15,11 @@ const Options = ({ updateFeedback, calcTotal, removeFeedback }) => {
       <button className={styles.bad} onClick={() => updateFeedback("bad")}>
         Bad
       </button>
-      {calcTotal ? (
+      {hasFeedback ? (
         <button className={styles.reset} onClick={removeFeedback}>
           Reset
         </button>
-      ) : (
-        false
-      )}
+      ) : null}
     </div>
   );
 };
