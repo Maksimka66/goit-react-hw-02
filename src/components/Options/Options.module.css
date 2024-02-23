@@ -1,0 +1,28 @@
+.buttonContainer {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.good {
+  background-color: green;
+  color: #000000;
+  border: none;
+  font-size: 32px;
+}
+
+.neutral {
+  composes: good;
+  background-color: yellow;
+}
+
+.bad {
+  composes: good;
+  background-color: red;
+}
+
+.reset {
+  composes: good;
+  background-color: black;
+  color: #ffffff;
+}

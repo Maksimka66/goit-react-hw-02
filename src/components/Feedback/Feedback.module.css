@@ -1,0 +1,12 @@
+.feedbackContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.paragraph {
+  margin: 0;
+  font-size: 32px;
+  color: #000000;
+}

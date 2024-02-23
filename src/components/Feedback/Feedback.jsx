@@ -1,4 +1,4 @@
-// import styles from "./Feedback.module.css";
+import styles from "./Feedback.module.css";
 
 const Feedback = ({
   responses: { good, neutral, bad },
@@ -6,12 +6,12 @@ const Feedback = ({
   positiveReviews,
 }) => {
   return (
-    <div>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>Total: {countTotal}</p>
-      <p>Positive: {positiveReviews}</p>
+    <div className={styles.feedbackContainer}>
+      <p className={styles.paragraph}>Good: {good}</p>
+      <p className={styles.paragraph}>Neutral: {neutral}</p>
+      <p className={styles.paragraph}>Bad: {bad}</p>
+      <p className={styles.paragraph}>Total: {countTotal}</p>
+      <p className={styles.paragraph}>Positive: {positiveReviews}%</p>
     </div>
   );
 };
