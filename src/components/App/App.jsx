@@ -41,7 +41,7 @@ function App() {
       <Description />
       <Options
         updateFeedback={updateFeedback}
-        calcTotal={totalFeedback(feedback)}
+        hasFeedback={totalFeedback(feedback)}
         removeFeedback={removeState}
       />
       {totalFeedback(feedback) ? (
